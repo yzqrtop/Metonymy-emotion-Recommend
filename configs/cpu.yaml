@@ -1,0 +1,78 @@
+profile: cpu
+seed: 42
+
+seed_data:
+  yelp_businesses: 500
+  emometa_pairs: 5000
+  taobao_items: 4096
+  taobao_users: 1200
+  taobao_embed_dim: 64
+  image_size: 160
+
+encoder:
+  text_backend: mock          # mock | qwen2.5-7b
+  vision_backend: mock        # mock | vit_b16
+  text_dim: 512
+  vision_dim: 768
+  patch_grid: 14
+  item_dim: 128
+  attention_dim: 64
+  num_heads: 4
+  top_k: 20
+  keyword_topk: 3
+  iou_threshold: 0.3
+
+stage1:
+  batch_size: 16
+  lr: 0.0001
+  weight_decay: 0.01
+  max_epochs: 4
+  patience: 2
+  emometa_subset: 500
+  select_by: last             # last | val_auc (small CPU validation split is noisy)
+
+stage2:
+  batch_size: 16
+  lr: 0.0001
+  weight_decay: 0.01
+  max_epochs: 12
+  patience: 3
+  lambda_score: 0.5
+  variants: ["full"]          # ["*"] = every generative variant (paper profile)
+
+decoder:
+  backend: tiny               # tiny | qwen2.5-1.8b
+  hidden_dim: 128
+  layers: 2
+  heads: 4
+  ff_mult: 4
+  dropout: 0.1
+  max_len: 192
+  lora_rank: 8
+  max_new_tokens: 60
+
+eval:
+  batch_size: 32
+  candidates: 20
+  neg_top_k: 200
+  bpr_epochs: 5
+  seeds: 1
+  topk: [5, 10]
+  human_sample: 40
+  generation_samples: 40
+  user_ranking_users: 60
+  generation_users: 10
+  transfer_users: 200
+  ranking_score_mode: head    # head | generate
+
+baseline:
+  epochs: 4
+  bpr_epochs: 4
+
+annotation:
+  backend: mock               # mock | qwen2.5-vl-72b
+  accept_threshold: 0.95
+  review_threshold: 0.7
+  sample_review_rate: 0.2
+  yelp_limit: 0
+  emometa_limit: 0            # 0 = annotate every sample (all review items are resolved)

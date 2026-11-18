@@ -1,0 +1,50 @@
+{
+  "source": "DUTIR-YSQ/EmoMeta official DataAll.xlsx and dataF",
+  "official_rows": 5000,
+  "usable_real_image_pairs": 360,
+  "missing_or_invalid_images": 4640,
+  "statistics": {
+    "total": 360,
+    "type_counts": {
+      "T1": 0,
+      "T2": 0,
+      "T3": 0,
+      "null": 0
+    },
+    "polarity_counts": {
+      "-1": 287,
+      "0": 54,
+      "1": 19
+    },
+    "positive_rate": 0.0528,
+    "emotion_counts": {
+      "trust": 7,
+      "neutral": 54,
+      "surprise": 287,
+      "joy": 10,
+      "love": 2
+    }
+  },
+  "split_groups": {
+    "train": 288,
+    "val": 36,
+    "test": 36
+  },
+  "official_fields": [
+    "Img_id",
+    "Img_url",
+    "Text",
+    "MetaphorOccurrence",
+    "Target domain",
+    "Source domain",
+    "Emotion"
+  ],
+  "unavailable_official_fields": [
+    "T1/T2/T3",
+    "bbox",
+    "keywords",
+    "recommendation label",
+    "user query"
+  ],
+  "warning": "Derived polarity/label fields support code testing, not official recommendation evaluation."
+}

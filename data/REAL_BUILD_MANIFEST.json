@@ -1,0 +1,140 @@
+{
+  "data_mode": "official_real_data_only",
+  "results": {
+    "emometa": {
+      "source": "DUTIR-YSQ/EmoMeta official DataAll.xlsx and dataF",
+      "official_rows": 5000,
+      "usable_real_image_pairs": 360,
+      "missing_or_invalid_images": 4640,
+      "statistics": {
+        "total": 360,
+        "type_counts": {
+          "T1": 0,
+          "T2": 0,
+          "T3": 0,
+          "null": 0
+        },
+        "polarity_counts": {
+          "-1": 287,
+          "0": 54,
+          "1": 19
+        },
+        "positive_rate": 0.0528,
+        "emotion_counts": {
+          "trust": 7,
+          "neutral": 54,
+          "surprise": 287,
+          "joy": 10,
+          "love": 2
+        }
+      },
+      "split_groups": {
+        "train": 288,
+        "val": 36,
+        "test": 36
+      },
+      "official_fields": [
+        "Img_id",
+        "Img_url",
+        "Text",
+        "MetaphorOccurrence",
+        "Target domain",
+        "Source domain",
+        "Emotion"
+      ],
+      "unavailable_official_fields": [
+        "T1/T2/T3",
+        "bbox",
+        "keywords",
+        "recommendation label",
+        "user query"
+      ],
+      "warning": "Derived polarity/label fields support code testing, not official recommendation evaluation."
+    },
+    "taobao_mm": {
+      "source": "TaoBao-MM/Taobao-MM official train shard and SCL int8 p90 feature map",
+      "source_shard": "train/train-shard-000159.parquet",
+      "source_rows": 1890,
+      "official_click_rows": 264,
+      "items": 64,
+      "users": 4,
+      "dim": 128,
+      "official_item_ids": [
+        -9142419938191997498,
+        -8838955941159446526,
+        -8706079212999530822,
+        -8424554186590062679,
+        -8382717516237370824,
+        -8359095386802256427,
+        -7565374073818733808,
+        -7318027613297415273,
+        -7288207830361946956,
+        -6959115143126345832,
+        -6343533584321957317,
+        -6039226165677824380,
+        -5973800192484588445,
+        -5647104051886610353,
+        -4708164151622416962,
+        -4364725129029685401,
+        -3643192082077559368,
+        -3093738867134670981,
+        -2911678147333410929,
+        -2846078713360819664,
+        -2798991754430647075,
+        -2379082796150761857,
+        -2175578532894162052,
+        -1828218115535367049,
+        -1698527382369054073,
+        -1601751008436380981,
+        -649448562662355731,
+        -642438604670391407,
+        -225262095342300050,
+        105981934823003113,
+        357009232148012955,
+        393167678597988983,
+        818185847926058661,
+        865948675372560946,
+        948779265681552109,
+        2223928460016695130,
+        2405257098046131455,
+        2734948152465059295,
+        2749457720265545652,
+        2915540617446163032,
+        3263576610791297560,
+        3590561319032798998,
+        3958855212529326069,
+        4494430819342272185,
+        4628112146049099741,
+        4893951280988191595,
+        5192818592232661882,
+        5304175687642851783,
+        5409024257798884227,
+        5497146905397605369,
+        6025853241134029006,
+        6146390404618853243,
+        6370211352585033539,
+        6582745863856748295,
+        7832037693212184261,
+        7851421021623335169,
+        7885684342707033269,
+        8007107841392678389,
+        8044677506379877945,
+        8127237539838570308,
+        8262885599912369112,
+        8275167114885303923,
+        8518113335527959429,
+        8996350693823705975
+      ],
+      "quantization": "official int8 values cast to float32; no synthetic rescaling",
+      "label_source": "official label_0 [0,1] click rows only",
+      "split_source": "derived leave-last-click-out per selected user inside the downloaded shard; not the full official split",
+      "interactions": 66,
+      "scope_warning": "Small real-data mechanics test, not a full Taobao-MM benchmark."
+    }
+  },
+  "yelp": {
+    "status": "manual_download_required",
+    "official_url": "https://www.yelp.com/dataset",
+    "note": "No Yelp archive was auto-downloaded or replaced. See RUNBOOK.md for manual ingestion requirements."
+  }
+}

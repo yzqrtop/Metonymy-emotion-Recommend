@@ -1,0 +1,73 @@
+{
+  "seed_version": 5,
+  "yelp": {
+    "path": "D:\\人大博士期间\\论文\\隐喻-多模态转喻推荐\\git_metonymyrec_program\\data/processed/yelp",
+    "samples": 679,
+    "images": 679,
+    "statistics": {
+      "total": 679,
+      "type_counts": {
+        "T1": 113,
+        "T2": 86,
+        "T3": 464,
+        "null": 16
+      },
+      "polarity_counts": {
+        "-1": 221,
+        "0": 91,
+        "1": 367
+      },
+      "positive_rate": 0.6244
+    },
+    "splits": {
+      "train": 400,
+      "val": 50,
+      "test": 50
+    },
+    "type_counts": {
+      "T1": 113,
+      "T2": 86,
+      "T3": 464,
+      "null": 16
+    }
+  },
+  "emometa": {
+    "path": "D:\\人大博士期间\\论文\\隐喻-多模态转喻推荐\\git_metonymyrec_program\\data/processed/emometa",
+    "samples": 5000,
+    "statistics": {
+      "total": 5000,
+      "type_counts": {
+        "T1": 1200,
+        "T2": 1800,
+        "T3": 2000,
+        "null": 0
+      },
+      "polarity_counts": {
+        "-1": 872,
+        "0": 2703,
+        "1": 1425
+      },
+      "positive_rate": 0.0,
+      "emotion_counts": {
+        "neutral": 2703,
+        "love": 361,
+        "surprise": 190,
+        "trust": 360,
+        "joy": 370,
+        "anticipation": 334,
+        "anger": 191,
+        "disgust": 159,
+        "sadness": 161,
+        "fear": 171
+      }
+    }
+  },
+  "taobao_mm": {
+    "path": "D:\\人大博士期间\\论文\\隐喻-多模态转喻推荐\\git_metonymyrec_program\\data/processed/taobao_mm",
+    "items": 4096,
+    "users": 1200,
+    "dim": 64,
+    "interactions": 18627
+  },
+  "notes": "Procedurally rendered seed datasets. Replace with prepare_data.py --source real."
+}
